@@ -4,6 +4,7 @@ authors = ["Nicolas Wink"]
 version = "1.0.0-DEV"
 
 [deps]
+Formatting = "59287772-0a20-5a39-b81b-1366585eb4c0"
 StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
 
 [compat]
