@@ -1,5 +1,10 @@
 module Hubbles_TriangularSU2
 
-# Write your package code here.
+using StaticArrays
+
+include("will_be_another_module.jl")
+
+include("channels.jl")
+include("dispertion_relations.jl")
 
 end
