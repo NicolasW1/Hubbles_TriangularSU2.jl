@@ -46,6 +46,23 @@ using Test, StaticArrays
         end
     end
 
+    @testset "FormFactors" begin
+        num_ff = [1, 19, 61, 127, 217]
+
+        for s = 0:4
+            ffs = filtered_formfactors(s)
+            @test length(ffs) == 1 + (num_ff[s+1] - 1) / 2
+            calc_vals = rand(ComplexF64, length(ffs))
+
+            all = Vector{ComplexF64}(undef, num_ff[s+1])
+            restore_formfactors!(all, i->calc_vals[i])
+
+            @test all[1] == calc_vals[1]
+            @test all[2:2:end] == calc_vals[2:end]
+            @test all[3:2:end] == conj.(calc_vals[2:end])
+        end
+    end
+
     @testset "Output" begin
         momentum_1 = SVector(0.1 * pi, -1.25)
         momentum_2 = SVector(-0.1, 15.38)
