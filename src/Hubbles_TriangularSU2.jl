@@ -10,12 +10,14 @@ include("parameter.jl")
 include("formfactors.jl")
 
 include("dispertion_relations.jl")
+include("integrands.jl")
 
 include("output.jl")
 
 export ParticleParticle, ParticleHole
 export t₁Params, t₂Params, Parameter, saveDict
 export filtered_formfactors, restore_formfactors!
+export bubble!, onsite_bubble
 
 export parameterString, momentumString, outputFolder, outputFileName
 

@@ -40,6 +40,10 @@ end
 const ff_R1 = SVector(3.0/2.0,sqrt(3.0)/2.0)
 const ff_R2 = SVector(3.0/2.0,-sqrt(3.0)/2.0)
 
+@inline function formfactor(q::SVector{2, T}, llp::SVector{2, I}) where {T <: AbstractFloat, I <: Integer}
+    exp(im * ((llp[1] * ff_R1[1] + llp[2] * ff_R2[1]) * q[1] + (llp[1] * ff_R1[2] + llp[2] * ff_R2[2]) * q[2]))
+end
+
 ########################
 ##### User part here ###
 ########################
