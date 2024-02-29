@@ -15,8 +15,6 @@ t₁Params(μ::AbstractFloat) = t₁Params(one(μ), μ)
 t₁Params(μ::Number) = t₁Params(float(μ))
 saveDict(p::t₁Params) = saveDict(Parameter(p))
 
-
-
 struct t₂Params{T<:AbstractFloat} <: AbstractParameter{T}
     t₁::T
     t₂::T

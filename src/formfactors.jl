@@ -76,8 +76,8 @@ function restore_formfactors!(all, reduced)
         if i==1
             all[i] = reduced(i)
         else
-            map_i = (i÷2) + 1
             if i%2 == 0
+                map_i = (i÷2) + 1
                 all[i] = reduced(map_i)
             else
                 all[i] = conj(all[i-1])
