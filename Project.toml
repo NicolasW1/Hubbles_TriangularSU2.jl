@@ -5,11 +5,13 @@ version = "1.0.0-DEV"
 
 [deps]
 Formatting = "59287772-0a20-5a39-b81b-1366585eb4c0"
+HubblesPrecalculator = "44467592-c036-43e8-a771-e8ced39be88e"
+HubblesPrerequisites = "0e587a0b-3c6a-471f-9f17-a8871fd4a511"
 StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
 
 [compat]
-StaticArrays = "1"
 Formatting = "0.4"
+StaticArrays = "1"
 julia = "1"
 
 [extras]

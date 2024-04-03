@@ -1,9 +1,7 @@
 module Hubbles_TriangularSU2
 
 using StaticArrays, Formatting
-
-include("will_be_another_module.jl")
-export AbstractParameter, Bubble, TnFp, ∂¹aTnFp, ∂³aTnFp, ExternalInput
+using HubblesPrerequisites
 
 include("channels.jl")
 include("parameter.jl")
@@ -15,10 +13,30 @@ include("integrands.jl")
 include("output.jl")
 
 export ParticleParticle, ParticleHole
-export t₁Params, t₂Params, Parameter, saveDict
+export t₁Params, t₂Params, Parameter
 export filtered_formfactors, restore_formfactors!
 export bubble!, onsite_bubble
 
-export parameterString, momentumString, outputFolder, outputFileName
+export saveDict, parameterString, momentumString, outputFolder, outputFileName
+
+struct Model{T1, T2, F1, F2, F3, F4, FM1, FM2, FM3, FM4, FM5} <: AbstractModel
+    bubbles::T1
+    Parameter::T2
+
+    filtered_formfactors::F1
+    restore_formfactors!::F2
+    bubble!::F3
+    onsite_bubble::F4
+
+    saveDict::FM1
+    parameterString::FM2
+    momentumString::FM3
+    outputFolder::FM4
+    outputFileName::FM5
+end
+
+model = Model((ParticleParticle, ParticleHole), Parameter, filtered_formfactors, restore_formfactors!, bubble!, onsite_bubble, saveDict, parameterString, momentumString, outputFolder, outputFileName)
+
+export Model, model
 
 end
